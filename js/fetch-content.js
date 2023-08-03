@@ -55,7 +55,7 @@ fetchProjectList().then((response) => {
           </a>
         </button>
       </div>
-      <footer class="details" id="details-pane1">
+      <footer class="details" id="details-pane${counter}">
         <button class="chevron-hint" aria-controls="details-pane${counter}">
           <ion-icon name="chevron-up-circle"></ion-icon>
         </button>

@@ -1,4 +1,4 @@
-window.onload = () => {
+window.addEventListener("DOMContentLoaded", () => {
   const navigation = document.querySelector(".links-navbar");
   const navigationToggle = navigation.querySelector(".toggle-navbar");
   const navigationIcon = navigationToggle.querySelector("ion-icon");
@@ -159,4 +159,4 @@ window.onload = () => {
   );
 
   typewriterObserver.observe(typewriter);
-};
+});
