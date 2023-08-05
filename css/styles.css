@@ -39,7 +39,6 @@ body {
   color: var(--primary);
   background: var(--background);
   background-repeat: no-repeat;
-  width: 100svw;
   min-height: 100vh;
 }
 
@@ -379,6 +378,11 @@ body {
 
 #wave {
   width: 100%;
+  margin-bottom: -4x;
+  overflow: hidden;
+}
+
+#wave svg {
   margin-bottom: -5px;
 }
 
@@ -430,18 +434,16 @@ body {
 }
 
 #render {
-  /* display: none; */
   z-index: 9997;
-  position: fixed;
-  width: 96vw;
-  height: 90vh;
-  background: var(--muted);
+  position: absolute;
+  width: 96svw;
+  height: 87vh;
+  /* background: var(--muted); */
   border: 3px solid var(--accent);
   border-radius: 1rem;
-  top: 50%;
+  top: 2rem;
   left: 50%;
-  transform: translate(-50%, -50%);
-  isolation: isolate;
+  transform: translateX(-50%);
 }
 
 #backdrop-render {
@@ -461,7 +463,7 @@ body {
   color: var(--secondary);
   font-size: 4rem;
   position: absolute;
-  bottom: 0;
+  bottom: 1.5rem;
   right: 3rem;
   border: none;
   border-radius: 50%;
@@ -710,16 +712,9 @@ body {
   }
 }
 
-@media (max-width: 430px) {
+@media (max-width: 435px) {
   .cards-container {
     align-self: self-start;
     padding-left: 1rem;
-  }
-}
-
-@media (max-width: 385px) {
-  .cards-container {
-    padding-left: 0.1rem;
-    scale: 0.95;
   }
 }

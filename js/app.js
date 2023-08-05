@@ -1,6 +1,5 @@
 // grab a box where elements will be injected into
 const container = document.querySelector(".cards-container");
-
 let pages = [];
 
 // fetch my projects metadata json
@@ -13,8 +12,9 @@ const fetchProjectList = async () => {
 };
 
 // async respone
-fetchProjectList().then((response) => {
+const handleProjects = async (response) => {
   const projects = response.projects;
+  let counter = 2;
 
   // sort to make sure my projects "timeline" is in order
   const projectsSorted = projects.sort((a, b) => {
@@ -36,7 +36,6 @@ fetchProjectList().then((response) => {
     // helper temp variables
     let skillsHTML = "";
     let categoriesHTML = "";
-    let counter = 2;
 
     // map std date format to short month names strings
     const monthNames = [
@@ -108,6 +107,7 @@ fetchProjectList().then((response) => {
     const tempElement = document.createElement("div");
     //prep its attricutes as needed
     tempElement.setAttribute("id", `card${counter}`);
+    tempElement.setAttribute("data-project-index", `${counter - 2}`);
     tempElement.setAttribute("class", "card");
     tempElement.setAttribute("data-size", "");
     tempElement.setAttribute("data-expanded", "false");
@@ -118,38 +118,49 @@ fetchProjectList().then((response) => {
     // append the completed card to the container
     container.appendChild(tempElement);
 
-    // TODO: Get html content for iframes
-    let prepUrl = `https://raw.githubusercontent.com/tom-gora${project.source}/prepared.html`;
-
-    const getRawHTML = async (url) => {
-      const htmlDataResponse = await fetch(url);
-      const html = await htmlDataResponse.text();
-      pages.push(html);
-    };
-
-    getRawHTML(prepUrl);
     counter++;
   });
 
-  // console.log(pages);
+  // TODO: Get html content for iframes
+  // let prepUrl = `https://raw.githubusercontent.com/tom-gora${project.source}/prepared.html`;
+
+  const getRawHTML = async (url) => {
+    const htmlDataResponse = await fetch(url);
+    const html = await htmlDataResponse.text();
+    return html;
+  };
+
+  for (const project of projectsSorted) {
+    const prepUrl = `https://raw.githubusercontent.com/tom-gora${project.source}/prepared.html`;
+
+    const rawHTML = await getRawHTML(prepUrl);
+    pages.push(rawHTML);
+  }
+
+  // console.log(pages[9]);
 
   //TODO: Continue
-  //
-  // const iframeBox = document.querySelector("#backdrop-render");
-  // const iframe = iframeBox.querySelector("#render");
-  // const iframeToggle = iframeBox.querySelector("#toggle-render");
-  // const viewLinks = document.querySelector(".view-link");
-  //
-  // viewLinks.forEach((viewLink) => {
-  //   viewLink.addEventListener("click", () => {
-  //     iframeBox.setAttribute("data-showing", "true");
-  //   });
-  // });
-  //
-  // iframeToggle.addEventListener("click", () => {
-  //   iframeBox.setAttribute("data-showing", "false");
-  // });
-  //
+
+  const iframeBox = document.querySelector("#backdrop-render");
+  const iframe = iframeBox.querySelector("#render");
+  const iframeToggle = iframeBox.querySelector("#toggle-render");
+  const viewLinks = document.querySelectorAll(".view-link");
+
+  viewLinks.forEach((viewLink) => {
+    viewLink.addEventListener("click", () => {
+      const projectCard = viewLink.closest(".card");
+      const projectIndex = projectCard.getAttribute("data-project-index");
+      iframe.contentWindow.document.open();
+      iframe.contentWindow.document.write(pages[projectIndex]);
+      iframe.contentWindow.document.close();
+      iframeBox.setAttribute("data-showing", "true");
+    });
+  });
+
+  iframeToggle.addEventListener("click", () => {
+    iframeBox.setAttribute("data-showing", "false");
+  });
+
   // rest of page functionality:
 
   const toggles = document.querySelectorAll(".chevron-hint");
@@ -259,7 +270,6 @@ fetchProjectList().then((response) => {
 
   // if window resized past breakpoint in either direction it will be reloaded
   const resetCards = () => {
-    console.log("reset");
     location.reload();
   };
 
@@ -337,4 +347,5 @@ fetchProjectList().then((response) => {
   );
 
   typewriterObserver.observe(typewriter);
-});
+};
+fetchProjectList().then(handleProjects);
