@@ -2,6 +2,16 @@
 const container = document.querySelector(".cards-container");
 let pages = [];
 
+const tags = new Set();
+tags
+  .add("html5")
+  .add("css3")
+  .add("javascript")
+  .add("php")
+  .add("mysql")
+  .add("jquery")
+  .add("paypal");
+
 // fetch my projects metadata json
 const fetchProjectList = async () => {
   const response = await fetch(
@@ -54,15 +64,25 @@ const handleProjects = async (response) => {
     ];
     // set the name of the month
     const month = monthNames[monthNumber];
+    const currentCardTags = new Set();
+    let currentCardTagsString = "";
 
     // construct raw html for skills section
     skills.forEach((skill) => {
       skillsHTML += `<i class="devicon-${skill}-plain"></i>`;
+      tags.add(skill);
+      currentCardTags.add(skill);
     });
 
     // construct raw html for categories section
     categories.forEach((category) => {
       categoriesHTML += `<small>${category}</small>`;
+      tags.add(category);
+      currentCardTags.add(category);
+    });
+
+    currentCardTags.forEach((tag) => {
+      currentCardTagsString += `${tag} `;
     });
 
     // construct inner html for each card
@@ -111,6 +131,8 @@ const handleProjects = async (response) => {
     tempElement.setAttribute("class", "card");
     tempElement.setAttribute("data-size", "");
     tempElement.setAttribute("data-expanded", "false");
+    tempElement.setAttribute("data-tags", `${currentCardTagsString}`);
+    tempElement.setAttribute("data-visible", "true");
     tempElement.setAttribute("aria-expanded", "false");
     // inject raw html into element
     tempElement.innerHTML = cardHtml;
@@ -120,9 +142,6 @@ const handleProjects = async (response) => {
 
     counter++;
   });
-
-  // TODO: Get html content for iframes
-  // let prepUrl = `https://raw.githubusercontent.com/tom-gora${project.source}/prepared.html`;
 
   const getRawHTML = async (url) => {
     const htmlDataResponse = await fetch(url);
@@ -298,6 +317,13 @@ const handleProjects = async (response) => {
   const navigationToggle = navigation.querySelector(".toggle-navbar");
   const navigationIcon = navigationToggle.querySelector("ion-icon");
 
+  const filtersToggle = document.querySelector("#toggle-filters");
+  const filtersDiv = document.querySelector("#filters-list");
+  const linksList = document.querySelector("#links-list");
+  const filtersToggleDescription = filtersToggle.querySelector(
+    "#toggle-filters span"
+  );
+
   // mobile nav sliding in/out
   const handleMobileNav = () => {
     const menuState = navigation.getAttribute("data-expanded");
@@ -309,6 +335,9 @@ const handleProjects = async (response) => {
       navigation.setAttribute("data-expanded", "false");
       navigation.style.paddingLeft = "0.25rem";
       navigationIcon.setAttribute("name", "chevron-back-circle");
+      filtersDiv.setAttribute("data-expanded", "false");
+      linksList.setAttribute("data-expanded", "true");
+      filtersToggleDescription.textContent = "Show filters";
     }
   };
 
@@ -347,5 +376,107 @@ const handleProjects = async (response) => {
   );
 
   typewriterObserver.observe(typewriter);
+
+  filtersToggle.addEventListener("click", () => {
+    let filtersState = filtersDiv.getAttribute("data-expanded");
+    let navigationState = navigation.getAttribute("data-expanded");
+    const cardSize = cards[0].getAttribute("data-size");
+    let navHeight;
+    const recalculateNavHeight = () => {
+      navHeight = navigation.offsetHeight + 64;
+    };
+
+    const updateTopOffset = (offsetDistance) => {
+      console.log(navigation.offsetHeight);
+      if (cardSize !== "large") {
+        container.style.marginTop = "4rem";
+      } else {
+        if (filtersState === "false") {
+          container.style.marginTop = offsetDistance + "px";
+        } else {
+          container.style.marginTop = "12rem";
+        }
+      }
+    };
+
+    if (filtersState === "false" && navigationState === "false") {
+      filtersDiv.setAttribute("data-expanded", "true");
+      linksList.setAttribute("data-expanded", "false");
+      navigation.setAttribute("data-expanded", "true");
+      filtersToggleDescription.textContent = "Hide Filters";
+      navigationIcon.setAttribute("name", "close-circle");
+      recalculateNavHeight();
+      updateTopOffset(navHeight);
+    } else if (filtersState === "true" && navigationState === "false") {
+      filtersDiv.setAttribute("data-expanded", "false");
+      linksList.setAttribute("data-expanded", "true");
+      navigation.setAttribute("data-expanded", "false");
+      filtersToggleDescription.textContent = "Show Filters";
+      recalculateNavHeight();
+      updateTopOffset(navHeight);
+    } else if (filtersState === "false" && navigationState === "true") {
+      filtersDiv.setAttribute("data-expanded", "true");
+      linksList.setAttribute("data-expanded", "false");
+      navigation.setAttribute("data-expanded", "true");
+      filtersToggleDescription.textContent = "Hide filters";
+      recalculateNavHeight();
+      updateTopOffset(navHeight);
+    } else if (filtersState === "true" && navigationState === "true") {
+      filtersDiv.setAttribute("data-expanded", "false");
+      linksList.setAttribute("data-expanded", "true");
+      navigation.setAttribute("data-expanded", "true");
+      filtersToggleDescription.textContent = "Show filters";
+      recalculateNavHeight();
+      updateTopOffset(navHeight);
+    }
+  });
+
+  const sortedTagsArray = Array.from(tags).sort();
+
+  const sortedTags = new Set(sortedTagsArray);
+
+  sortedTags.forEach((tag) => {
+    const tempElement = document.createElement("small");
+    tempElement.setAttribute("data-filtering", "active");
+
+    tempElement.innerText = tag;
+    filtersDiv.appendChild(tempElement);
+  });
+
+  const filters = filtersDiv.querySelectorAll("small");
+
+  let currentActiveFilter = null;
+
+  filters.forEach((filter) => {
+    filter.addEventListener("click", () => {
+      if (filter === currentActiveFilter) {
+        filters.forEach((f) => {
+          f.setAttribute("data-filtering", "active");
+        });
+        currentActiveFilter = null;
+      } else {
+        filters.forEach((f) => {
+          if (f !== filter) {
+            f.setAttribute("data-filtering", "disabled");
+          }
+        });
+        currentActiveFilter = filter;
+      }
+
+      console.log(cards);
+
+      cards.forEach((card) => {
+        const tags = card.getAttribute("data-tags").split(" ");
+        if (
+          !currentActiveFilter ||
+          tags.includes(currentActiveFilter.innerText)
+        ) {
+          card.setAttribute("data-visible", "true");
+        } else {
+          card.setAttribute("data-visible", "false");
+        }
+      });
+    });
+  });
 };
 fetchProjectList().then(handleProjects);
