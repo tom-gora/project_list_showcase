@@ -337,7 +337,7 @@ const handleProjects = async (response) => {
       navigationIcon.setAttribute("name", "chevron-back-circle");
       filtersDiv.setAttribute("data-expanded", "false");
       linksList.setAttribute("data-expanded", "true");
-      filtersToggleDescription.textContent = "Show filters";
+      filtersToggleDescription.textContent = "Show Filters";
     }
   };
 
@@ -383,7 +383,7 @@ const handleProjects = async (response) => {
     const cardSize = cards[0].getAttribute("data-size");
     let navHeight;
     const recalculateNavHeight = () => {
-      navHeight = navigation.offsetHeight + 64;
+      navHeight = navigation.offsetHeight + 56;
     };
 
     const updateTopOffset = (offsetDistance) => {
@@ -418,14 +418,14 @@ const handleProjects = async (response) => {
       filtersDiv.setAttribute("data-expanded", "true");
       linksList.setAttribute("data-expanded", "false");
       navigation.setAttribute("data-expanded", "true");
-      filtersToggleDescription.textContent = "Hide filters";
+      filtersToggleDescription.textContent = "Hide Filters";
       recalculateNavHeight();
       updateTopOffset(navHeight);
     } else if (filtersState === "true" && navigationState === "true") {
       filtersDiv.setAttribute("data-expanded", "false");
       linksList.setAttribute("data-expanded", "true");
       navigation.setAttribute("data-expanded", "true");
-      filtersToggleDescription.textContent = "Show filters";
+      filtersToggleDescription.textContent = "Show Filters";
       recalculateNavHeight();
       updateTopOffset(navHeight);
     }
