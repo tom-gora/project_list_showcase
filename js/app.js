@@ -15,7 +15,7 @@ tags
 // fetch my projects metadata json
 const fetchProjectList = async () => {
   const response = await fetch(
-    "https://raw.githubusercontent.com/tom-gora/webdev_basics/master/fetch-me.json"
+    "https://raw.githubusercontent.com/tom-gora/webdev_basics/master/fetch-me.json",
   );
   const projects = await response.json();
   return projects;
@@ -62,6 +62,7 @@ const handleProjects = async (response) => {
       "Nov",
       "Dec",
     ];
+
     // set the name of the month
     const month = monthNames[monthNumber];
     const currentCardTags = new Set();
@@ -156,10 +157,6 @@ const handleProjects = async (response) => {
     pages.push(rawHTML);
   }
 
-  // console.log(pages[9]);
-
-  //TODO: Continue
-
   const iframeBox = document.querySelector("#backdrop-render");
   const iframe = iframeBox.querySelector("#render");
   const iframeToggle = iframeBox.querySelector("#toggle-render");
@@ -170,7 +167,7 @@ const handleProjects = async (response) => {
       const projectCard = viewLink.closest(".card");
       const projectIndex = projectCard.getAttribute("data-project-index");
       iframe.contentWindow.document.open();
-      iframe.contentWindow.document.write(pages[projectIndex]);
+      iframe.srcdoc = pages[projectIndex];
       iframe.contentWindow.document.close();
       iframeBox.setAttribute("data-showing", "true");
     });
@@ -211,7 +208,7 @@ const handleProjects = async (response) => {
     let cardState = parentCard.getAttribute("data-expanded");
 
     const currentlyExpandedCard = document.querySelector(
-      ".card[data-expanded='true']"
+      ".card[data-expanded='true']",
     );
     let currentlyExpandedFooter;
     let currentlyExpandedToggle;
@@ -321,7 +318,7 @@ const handleProjects = async (response) => {
   const filtersDiv = document.querySelector("#filters-list");
   const linksList = document.querySelector("#links-list");
   const filtersToggleDescription = filtersToggle.querySelector(
-    "#toggle-filters span"
+    "#toggle-filters span",
   );
 
   // mobile nav sliding in/out
@@ -372,7 +369,7 @@ const handleProjects = async (response) => {
     (entries) => {
       if (entries[0].isIntersecting === true) animateTypewriter();
     },
-    { threshold: [0.5] }
+    { threshold: [0.5] },
   );
 
   typewriterObserver.observe(typewriter);
