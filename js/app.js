@@ -24,13 +24,13 @@ const fetchProjectList = async () => {
 // async respone
 const handleProjects = async (response) => {
   const projects = response.projects;
-  let counter = 2;
+  let counter = 3;
 
   // sort to make sure my projects "timeline" is in order
   const projectsSorted = projects.sort((a, b) => {
     const dateA = new Date(a.date);
     const dateB = new Date(b.date);
-    return dateA - dateB;
+    return dateB - dateA;
   });
 
   // loop through project objects to construct the page
