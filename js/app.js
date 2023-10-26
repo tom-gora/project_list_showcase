@@ -10,7 +10,11 @@ tags
   .add("php")
   .add("mysql")
   .add("jquery")
-  .add("paypal");
+  .add("paypal")
+  .add("java")
+  .add("api")
+  .add("spring");
+
 
 // fetch my projects metadata json
 const fetchProjectList = async () => {
@@ -384,7 +388,6 @@ const handleProjects = async (response) => {
     };
 
     const updateTopOffset = (offsetDistance) => {
-      console.log(navigation.offsetHeight);
       if (cardSize !== "large") {
         container.style.marginTop = "4rem";
       } else {
