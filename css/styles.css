@@ -241,6 +241,10 @@ body {
   color: var(--primary);
 }
 
+:host(#strapi-icon){
+  fill: #0B0718;
+}
+
 .thumb {
   display: flex;
   flex-direction: row;
@@ -282,6 +286,11 @@ body {
   transition: var(--transition);
 }
 
+.chevron-hint:hover,
+.chevron-hint:focus {
+  color: var(--accent);
+}
+
 .card[data-expanded="true"] .chevron-hint {
   top: -1.5rem;
 }
@@ -289,6 +298,21 @@ body {
 .chevron-hint ion-icon {
   background: var(--secondary);
   border-radius: 50%;
+}
+
+.chevron-hint:hover ion-icon ,
+.chevron-hint:focus ion-icon {
+animation: pulse 1000ms ease-out infinite;
+}
+
+
+@keyframes pulse {
+0%, 100% {
+scale: 1;
+}
+20% {
+  scale:0.95;
+}
 }
 
 .card:not(:hover) .thumb {

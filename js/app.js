@@ -28,7 +28,7 @@ const fetchProjectList = async () => {
 // async respone
 const handleProjects = async (response) => {
   const projects = response.projects;
-  let counter = 3;
+  let counter = 4;
 
   // sort to make sure my projects "timeline" is in order
   const projectsSorted = projects.sort((a, b) => {
