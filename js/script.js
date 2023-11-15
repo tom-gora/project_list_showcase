@@ -13,7 +13,11 @@ tags
   .add("paypal")
   .add("java")
   .add("api")
-  .add("spring");
+  .add("spring")
+  .add("react")
+  .add("strapi")
+  .add("sqlite");
+
 
 
 // fetch my projects metadata json
@@ -379,6 +383,8 @@ const handleProjects = async (response) => {
   typewriterObserver.observe(typewriter);
 
   filtersToggle.addEventListener("click", () => {
+
+    // tags.forEach((tag) => { console.log(tag) })
     let filtersState = filtersDiv.getAttribute("data-expanded");
     let navigationState = navigation.getAttribute("data-expanded");
     const cardSize = cards[0].getAttribute("data-size");
@@ -462,8 +468,6 @@ const handleProjects = async (response) => {
         });
         currentActiveFilter = filter;
       }
-
-      console.log(cards);
 
       cards.forEach((card) => {
         const tags = card.getAttribute("data-tags").split(" ");
