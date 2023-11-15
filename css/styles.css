@@ -49,7 +49,7 @@ body {
   background: var(--glass-background);
   backdrop-filter: blur(1rem);
   position: fixed;
-  right: -17rem;
+  right: -16.5rem;
   top: 0;
   height: 100dvh;
   width: 20rem;
@@ -71,8 +71,9 @@ body {
   align-items: flex-start;
   justify-content: flex-end;
   flex-grow: 1;
-  gap: 3rem;
+  gap: 2rem;
   transition: var(--transition);
+  margin-bottom: 2rem;
 }
 
 #links-list[data-expanded="false"] {
@@ -120,11 +121,12 @@ body {
   color: var(--primary);
   text-decoration: none;
   display: flex;
+  font-size:1rem;
   flex-direction: row;
   align-items: center;
   gap: 1rem;
   background: var(--secondary);
-  width: fit-content;
+  width: max-content;
   height: 3rem;
   border-radius: 100vw;
   padding-right: 1rem;
@@ -143,7 +145,7 @@ body {
 
 #avatar {
   flex-shrink: 0;
-  margin-block: 4rem;
+  margin-block: 3.5rem;
 }
 
 .nav-icon {
@@ -167,7 +169,6 @@ body {
 }
 
 #toggle-filters {
-  margin-top: 3rem;
   border: none;
 }
 
@@ -241,8 +242,8 @@ body {
   color: var(--primary);
 }
 
-:host(#strapi-icon){
-  fill: #0B0718;
+#strapi-icon g {
+  fill: var(--primary);
 }
 
 .thumb {
