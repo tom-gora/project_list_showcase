@@ -3,8 +3,7 @@ const container = document.querySelector(".cards-container");
 let pages = [];
 
 const tags = new Set();
-tags
-  .add("html5")
+tags.add("html5")
   .add("css3")
   .add("javascript")
   .add("php")
@@ -18,12 +17,10 @@ tags
   .add("strapi")
   .add("sqlite");
 
-
-
 // fetch my projects metadata json
 const fetchProjectList = async () => {
   const response = await fetch(
-    "https://raw.githubusercontent.com/tom-gora/webdev_basics/master/fetch-me.json",
+    "https://raw.githubusercontent.com/tom-gora/webdev_basics/master/fetch-me.json"
   );
   const projects = await response.json();
   return projects;
@@ -96,7 +93,8 @@ const handleProjects = async (response) => {
 
     // construct inner html for each card
     const cardHtml = `<header class="skills">${skillsHTML}</header>
-      <div class="thumb" style="background-image: url('https://raw.githubusercontent.com/tom-gora${project.source}/thumbnail.png')";>
+      <div class="thumb" 
+style="background-image: url('https://raw.githubusercontent.com/tom-gora${project.source}/thumbnail.png')";>
         <button class="view-link">
           <a href="#">
             <small>View it!</small>
@@ -216,7 +214,7 @@ const handleProjects = async (response) => {
     let cardState = parentCard.getAttribute("data-expanded");
 
     const currentlyExpandedCard = document.querySelector(
-      ".card[data-expanded='true']",
+      ".card[data-expanded='true']"
     );
     let currentlyExpandedFooter;
     let currentlyExpandedToggle;
@@ -237,7 +235,8 @@ const handleProjects = async (response) => {
       parentCardDescription.style.opacity = "1";
       element.style.transform = "rotate(0deg)";
     } else {
-      currentlyExpandedFooter = currentlyExpandedCard.querySelector(".details");
+      currentlyExpandedFooter =
+        currentlyExpandedCard.querySelector(".details");
       currentlyExpandedToggle =
         currentlyExpandedCard.querySelector(".chevron-hint");
       currentlyExpandedThumbnail =
@@ -326,7 +325,7 @@ const handleProjects = async (response) => {
   const filtersDiv = document.querySelector("#filters-list");
   const linksList = document.querySelector("#links-list");
   const filtersToggleDescription = filtersToggle.querySelector(
-    "#toggle-filters span",
+    "#toggle-filters span"
   );
 
   // mobile nav sliding in/out
@@ -377,13 +376,12 @@ const handleProjects = async (response) => {
     (entries) => {
       if (entries[0].isIntersecting === true) animateTypewriter();
     },
-    { threshold: [0.5] },
+    { threshold: [0.5] }
   );
 
   typewriterObserver.observe(typewriter);
 
   filtersToggle.addEventListener("click", () => {
-
     // tags.forEach((tag) => { console.log(tag) })
     let filtersState = filtersDiv.getAttribute("data-expanded");
     let navigationState = navigation.getAttribute("data-expanded");
