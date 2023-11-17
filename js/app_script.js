@@ -136,7 +136,7 @@ const handleProjects = async (response) => {
     const tempElement = document.createElement("div");
     //prep its attricutes as needed
     tempElement.setAttribute("id", `card${counter}`);
-    tempElement.setAttribute("data-project-index", `${counter - 2}`);
+    tempElement.setAttribute("data-project-index", `${counter - 4}`);
     tempElement.setAttribute("class", "card");
     tempElement.setAttribute("data-size", "");
     tempElement.setAttribute("data-expanded", "false");
