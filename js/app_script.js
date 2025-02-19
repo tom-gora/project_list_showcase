@@ -3,7 +3,8 @@ const container = document.querySelector(".cards-container");
 let pages = [];
 
 const tags = new Set();
-tags.add("html5")
+tags
+  .add("html5")
   .add("css3")
   .add("javascript")
   .add("php")
@@ -67,6 +68,9 @@ const handleProjects = async (response) => {
       "Nov",
       "Dec",
     ];
+    // monthNames.forEach((monthName) => {
+    //   console.log(monthName);
+    // });
 
     // set the name of the month
     const month = monthNames[monthNumber];
@@ -235,8 +239,7 @@ style="background-image: url('https://raw.githubusercontent.com/tom-gora${projec
       parentCardDescription.style.opacity = "1";
       element.style.transform = "rotate(0deg)";
     } else {
-      currentlyExpandedFooter =
-        currentlyExpandedCard.querySelector(".details");
+      currentlyExpandedFooter = currentlyExpandedCard.querySelector(".details");
       currentlyExpandedToggle =
         currentlyExpandedCard.querySelector(".chevron-hint");
       currentlyExpandedThumbnail =

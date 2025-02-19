@@ -1,191 +1,194 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebDev Basics Projects List</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WebDev Basics Projects List</title>
-  <link rel="stylesheet" href="css/styles.css" />
-  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
-</head>
-
-<body data-theme="light">
-  <nav class="links-navbar" data-expanded="false">
-    <div id="avatar">
-      <img src="assets/me_pic.png" alt="Small picture showing developer's face" />
-      <div class="who">
-        <span>Tom Gora</span>
-        <small>Web Developer</small>
-      </div>
-    </div>
-    <div id="filters-list" data-expanded="false"></div>
-    <ul id="links-list" data-expanded="true">
-      <li>
-        <a href="https://tomgora.online/blog/">
-          <div class="nav-icon">
-            <ion-icon name="finger-print-outline"></ion-icon>
-          </div>
-          <span>Blog</span>
-        </a>
-      </li>
-      <li>
-        <a href="https://github.com/tom-gora/webdev_basics">
-          <div class="nav-icon">
-            <ion-icon name="logo-github"> </ion-icon>
-          </div>
-          <span>Back to the source</span>
-        </a>
-      </li>
-      <li>
-        <a href="mailto:goratomasz@outlook.com">
-          <div class="nav-icon">
-            <ion-icon name="at-circle"></ion-icon>
-          </div>
-          <span>Email Me</span>
-        </a>
-      </li>
-      <li>
-        <a href="https://linkedin.com/in/tomasz-gora-6075b71ba">
-          <div class="nav-icon">
-            <ion-icon name="logo-linkedin"></ion-icon>
-          </div>
-          <span>LinkedIn</span>
-        </a>
-      </li>
-      <li id="toggle-mode">
-        <div class="nav-icon">
-          <ion-icon name="moon"></ion-icon>
+  <body data-theme="light">
+    <nav class="links-navbar" data-expanded="false">
+      <div id="avatar">
+        <img
+          src="assets/me_pic.png"
+          alt="Small picture showing developer's face"
+        />
+        <div class="who">
+          <span>Tom Gora </span>
+          <small>Web Developer</small>
         </div>
-        <span>Go Dark!</span>
-      </li>
-    </ul>
-    <li id="toggle-filters">
-      <div class="nav-icon">
-        <ion-icon name="options"></ion-icon>
       </div>
-      <span>Show Filters</span>
-    </li>
-
-    <button class="toggle-navbar">
-      <ion-icon name="chevron-back-circle"></ion-icon>
-    </button>
-  </nav>
-
-  <!--cards section where data is being injected-->
-
-  <div class="cards-container">
-    <div class="card" data-size="" data-expanded="false" aria-expanded="false"
-      data-tags="html5 css3 javascript php mysql jquery paypal school site streaming" data-visibles="true" id="card1">
-      <header class="skills">
-        <i class="devicon-html5-plain"></i>
-        <i class="devicon-css3-plain"></i>
-        <i class="devicon-javascript-plain"></i>
-        <i class="devicon-php-plain"></i>
-        <i class="devicon-mysql-plain"></i>
-        <i class="devicon-jquery-plain"></i>
-        <ion-icon name="logo-paypal" style="font-size: 1.2rem" ;></ion-icon>
-      </header>
-      <div class="thumb" style="
-                        background-image: url(&quot;https://raw.githubusercontent.com/tom-gora/webflix-college-project-git/main/thumbnail.png&quot;);
-                    " ;>
-        <button class="direct-link">
-          <a href="">
-            <small>View it!</small>
-            <ion-icon name="eye"></ion-icon>
-          </a>
-        </button>
-      </div>
-      <footer class="details" id="details-pane1">
-        <button class="chevron-hint" aria-controls="details-pane1">
-          <ion-icon name="chevron-up-circle"></ion-icon>
-        </button>
-        <div class="details-top">
-          <span class="categories">
-            <small>school</small>
-            <small>site</small>
-            <small>streaming</small>
-          </span>
-          <div class="date">
-            <div class="date-card">
-              <span>10</span>
-              <span>May</span>
-              <span>2023</span>
+      <div id="filters-list" data-expanded="false"></div>
+      <ul id="links-list" data-expanded="true">
+        <li>
+          <a href="https://tomgora.online">
+            <div class="nav-icon">
+              <ion-icon name="finger-print-outline"></ion-icon>
             </div>
+            <span>Back to the portfolio</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/tom-gora">
+            <div class="nav-icon">
+              <ion-icon name="logo-github"> </ion-icon>
+            </div>
+            <span>Back to the source</span>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:goratomasz@outlook.com">
+            <div class="nav-icon">
+              <ion-icon name="at-circle"></ion-icon>
+            </div>
+            <span>Email Me</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://linkedin.com/in/tomasz-gora-6075b71ba">
+            <div class="nav-icon">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </div>
+            <span>LinkedIn</span>
+          </a>
+        </li>
+        <li id="toggle-mode">
+          <div class="nav-icon">
+            <ion-icon name="moon"></ion-icon>
           </div>
-          <h2 class="title">WebFlix</h2>
+          <span>Go Dark!</span>
+        </li>
+      </ul>
+      <li id="toggle-filters">
+        <div class="nav-icon">
+          <ion-icon name="options"></ion-icon>
         </div>
-        <div class="details-bottom">
-          <p class="description">
-            College graduation project. Simple video streaming
-            website with mock data. It has a full user system,
-            simple admin panel, subscription plans and Paypal
-            Sandbox integration. Working, deployed demo.
-          </p>
+        <span>Show Filters</span>
+      </li>
+
+      <button class="toggle-navbar">
+        <ion-icon name="chevron-back-circle"></ion-icon>
+      </button>
+    </nav>
+
+    <!--cards section where data is being injected-->
+
+    <div class="cards-container">
+      <div
+        class="card"
+        data-size=""
+        data-expanded="false"
+        aria-expanded="false"
+        data-tags="html5 css3 javascript php mysql jquery paypal school site streaming"
+        data-visibles="true"
+        id="card1"
+      >
+        <header class="skills">
+          <i class="devicon-html5-plain"></i>
+          <i class="devicon-css3-plain"></i>
+          <i class="devicon-javascript-plain"></i>
+          <i class="devicon-php-plain"></i>
+          <i class="devicon-mysql-plain"></i>
+          <i class="devicon-jquery-plain"></i>
+          <ion-icon name="logo-paypal" style="font-size: 1.2rem" ;></ion-icon>
+        </header>
+        <div
+          class="thumb"
+          style="
+            background-image: url(&quot;https://raw.githubusercontent.com/tom-gora/webflix-college-project-git/main/thumbnail.png&quot;);
+          "
+          ;
+        >
           <button class="direct-link">
-            <a href="https://tomgora.online/webflix/">
+            <a href="">
               <small>View it!</small>
               <ion-icon name="eye"></ion-icon>
             </a>
           </button>
         </div>
-      </footer>
-    </div>
-    <!-- end of card 1 -->
-
-    <div class="card" data-size="" data-expanded="false" aria-expanded="false"
-      data-tags="html5 css3 javascript react strapi sqlite school blog personal" data-visibles="true" id="card2">
-      <header class="skills">
-        <i class="devicon-html5-plain"></i>
-        <i class="devicon-css3-plain"></i>
-        <i class="devicon-react-original"></i>
-        <i class="devicon-javascript-plain"></i>
-        <svg id="strapi-icon" height="2500" viewBox=".24262095 .26549587 243.32256626 243.58072911" width="1.1rem"
-          xmlns="http://www.w3.org/2000/svg">
-          <g fill="#231650" fill-rule="evenodd">
-            <path
-              d="m161.893 165.833v-78.73a5.077 5.077 0 0 0 -5.077-5.076h-78.638v-81.267h159.815a5.077 5.077 0 0 1 5.078 5.077v159.996z" />
-            <path
-              d="m78.178.76v81.267h-75.054a2.539 2.539 0 0 1 -1.796-4.333zm83.715 240.206v-75.133h81.178l-76.844 76.927a2.539 2.539 0 0 1 -4.334-1.794zm-83.715-158.939h81.176a2.539 2.539 0 0 1 2.539 2.538v81.268h-78.638a5.077 5.077 0 0 1 -5.077-5.077z"
-              opacity=".405" />
-          </g>
-        </svg>
-        <i class="devicon-sqlite-plain"></i>
-      </header>
-      <div class="thumb" style="
-                        background-image: url(&quot;https://raw.githubusercontent.com/tom-gora/mid-life-dev/main/blog-mid-life-dev/thumbnail.png&quot;);
-                    " ;>
-        <button class="direct-link">
-          <a href="https://tomgora.online/blog/">
-            <small>View it!</small>
-            <ion-icon name="eye"></ion-icon>
-          </a>
-        </button>
-      </div>
-      <footer class="details" id="details-pane2">
-        <button class="chevron-hint" aria-controls="details-pane2">
-          <ion-icon name="chevron-up-circle"></ion-icon>
-        </button>
-        <div class="details-top">
-          <span class="categories">
-            <small>school</small>
-            <small>blog</small>
-            <small>personal</small>
-          </span>
-          <div class="date">
-            <div class="date-card">
-              <span>15</span>
-              <span>Nov</span>
-              <span>2023</span>
+        <footer class="details" id="details-pane1">
+          <button class="chevron-hint" aria-controls="details-pane1">
+            <ion-icon name="chevron-up-circle"></ion-icon>
+          </button>
+          <div class="details-top">
+            <span class="categories">
+              <small>school</small>
+              <small>site</small>
+              <small>streaming</small>
+            </span>
+            <div class="date">
+              <div class="date-card">
+                <span>10</span>
+                <span>May</span>
+                <span>2023</span>
+              </div>
             </div>
+            <h2 class="title">WebFlix</h2>
           </div>
-          <h2 class="title">Mid Life Dev Blog</h2>
-        </div>
-        <div class="details-bottom">
-          <p class="description">
-            Custom styled blog using React for UI and Strapi CMS
-            for the backend. University project.
-          </p>
+          <div class="details-bottom">
+            <p class="description">
+              College graduation project. Simple video streaming website with
+              mock data. It has a full user system, simple admin panel,
+              subscription plans and Paypal Sandbox integration. Working,
+              deployed demo.
+            </p>
+            <button class="direct-link">
+              <a href="https://tomgora.online/webflix/">
+                <small>View it!</small>
+                <ion-icon name="eye"></ion-icon>
+              </a>
+            </button>
+          </div>
+        </footer>
+      </div>
+      <!-- end of card 1 -->
+
+      <div
+        class="card"
+        data-size=""
+        data-expanded="false"
+        aria-expanded="false"
+        data-tags="html5 css3 javascript react strapi sqlite school blog personal"
+        data-visibles="true"
+        id="card2"
+      >
+        <header class="skills">
+          <i class="devicon-html5-plain"></i>
+          <i class="devicon-css3-plain"></i>
+          <i class="devicon-react-original"></i>
+          <i class="devicon-javascript-plain"></i>
+          <svg
+            id="strapi-icon"
+            height="2500"
+            viewBox=".24262095 .26549587 243.32256626 243.58072911"
+            width="1.1rem"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g fill="#231650" fill-rule="evenodd">
+              <path
+                d="m161.893 165.833v-78.73a5.077 5.077 0 0 0 -5.077-5.076h-78.638v-81.267h159.815a5.077 5.077 0 0 1 5.078 5.077v159.996z"
+              />
+              <path
+                d="m78.178.76v81.267h-75.054a2.539 2.539 0 0 1 -1.796-4.333zm83.715 240.206v-75.133h81.178l-76.844 76.927a2.539 2.539 0 0 1 -4.334-1.794zm-83.715-158.939h81.176a2.539 2.539 0 0 1 2.539 2.538v81.268h-78.638a5.077 5.077 0 0 1 -5.077-5.077z"
+                opacity=".405"
+              />
+            </g>
+          </svg>
+          <i class="devicon-sqlite-plain"></i>
+        </header>
+        <div
+          class="thumb"
+          style="
+            background-image: url(&quot;https://raw.githubusercontent.com/tom-gora/mid-life-dev/main/blog-mid-life-dev/thumbnail.png&quot;);
+          "
+          ;
+        >
           <button class="direct-link">
             <a href="https://tomgora.online/blog/">
               <small>View it!</small>
@@ -193,55 +196,63 @@
             </a>
           </button>
         </div>
-      </footer>
-    </div>
-
-    <div class="card" data-size="" data-expanded="false" aria-expanded="false"
-      data-tags="html5 css3 java spring mysql school api" data-visibles="true" id="card3">
-      <header class="skills">
-        <i class="devicon-html5-plain"></i>
-        <i class="devicon-css3-plain"></i>
-        <i class="devicon-java-plain"></i>
-        <i class="devicon-spring-plain"></i>
-        <i class="devicon-mysql-plain"></i>
-      </header>
-      <div class="thumb" style="
-                        background-image: url(&quot;https://raw.githubusercontent.com/tom-gora/spring-boot-gym-app-college/main/thumbnail.png&quot;;);
-                    " ;>
-        <button class="direct-link">
-          <a href="http://tomgora.online:8080/gym_home">
-            <small>View it!</small>
-            <ion-icon name="eye"></ion-icon>
-          </a>
-        </button>
-      </div>
-      <footer class="details" id="details-pane3">
-        <button class="chevron-hint" aria-controls="details-pane3">
-          <ion-icon name="chevron-up-circle"></ion-icon>
-        </button>
-        <div class="details-top">
-          <span class="categories">
-            <small>school</small>
-            <small>spring</small>
-            <small>java</small>
-            <small>api</small>
-          </span>
-          <div class="date">
-            <div class="date-card">
-              <span>14</span>
-              <span>May</span>
-              <span>2023</span>
+        <footer class="details" id="details-pane2">
+          <button class="chevron-hint" aria-controls="details-pane2">
+            <ion-icon name="chevron-up-circle"></ion-icon>
+          </button>
+          <div class="details-top">
+            <span class="categories">
+              <small>school</small>
+              <small>blog</small>
+              <small>personal</small>
+            </span>
+            <div class="date">
+              <div class="date-card">
+                <span>15</span>
+                <span>Nov</span>
+                <span>2023</span>
+              </div>
             </div>
+            <h2 class="title">Mid Life Dev Blog</h2>
           </div>
-          <h2 class="title">SpringBoot Gym App</h2>
-        </div>
-        <div class="details-bottom">
-          <p class="description">
-            Simple SpringBoot and Maven project that hooks up to
-            exposed API endpoints and integrates with a database
-            to allow managing gym club members and display
-            charges in a web interface.
-          </p>
+          <div class="details-bottom">
+            <p class="description">
+              Custom styled blog using React for UI and Strapi CMS for the
+              backend. University project.
+            </p>
+            <button class="direct-link">
+              <a href="https://tomgora.online/blog/">
+                <small>View it!</small>
+                <ion-icon name="eye"></ion-icon>
+              </a>
+            </button>
+          </div>
+        </footer>
+      </div>
+
+      <div
+        class="card"
+        data-size=""
+        data-expanded="false"
+        aria-expanded="false"
+        data-tags="html5 css3 java spring mysql school api"
+        data-visibles="true"
+        id="card3"
+      >
+        <header class="skills">
+          <i class="devicon-html5-plain"></i>
+          <i class="devicon-css3-plain"></i>
+          <i class="devicon-java-plain"></i>
+          <i class="devicon-spring-plain"></i>
+          <i class="devicon-mysql-plain"></i>
+        </header>
+        <div
+          class="thumb"
+          style="
+            background-image: url(&quot;https://raw.githubusercontent.com/tom-gora/spring-boot-gym-app-college/main/thumbnail.png&quot;);
+          "
+          ;
+        >
           <button class="direct-link">
             <a href="http://tomgora.online:8080/gym_home">
               <small>View it!</small>
@@ -249,51 +260,103 @@
             </a>
           </button>
         </div>
-      </footer>
+        <footer class="details" id="details-pane3">
+          <button class="chevron-hint" aria-controls="details-pane3">
+            <ion-icon name="chevron-up-circle"></ion-icon>
+          </button>
+          <div class="details-top">
+            <span class="categories">
+              <small>school</small>
+              <small>spring</small>
+              <small>java</small>
+              <small>api</small>
+            </span>
+            <div class="date">
+              <div class="date-card">
+                <span>14</span>
+                <span>May</span>
+                <span>2023</span>
+              </div>
+            </div>
+            <h2 class="title">SpringBoot Gym App</h2>
+          </div>
+          <div class="details-bottom">
+            <p class="description">
+              Simple SpringBoot and Maven project that hooks up to exposed API
+              endpoints and integrates with a database to allow managing gym
+              club members and display charges in a web interface.
+            </p>
+            <button class="direct-link">
+              <a href="http://tomgora.online:8080/gym_home">
+                <small>View it!</small>
+                <ion-icon name="eye"></ion-icon>
+              </a>
+            </button>
+          </div>
+        </footer>
+      </div>
+      <!-- end of card 2 -->
     </div>
-    <!-- end of card 2 -->
-  </div>
-  <!-- end of card container-->
+    <!-- end of card container-->
 
-  <!--footer-->
-  <div class="footer-offset-wrapper">
-    <div id="wave" style="overflow: hidden">
-      <svg preserveAspectRatio="none" viewBox="0 0 1200 120" xmlns="https://www.w3.org/2000/svg" style="
-                        fill: #ffffff;
-                        width: 100%;
-                        height: 92px;
-                        transform: rotate(180deg) scaleX(-1);
-                    ">
-        <path d="M0 0v46.29c47.79 22.2 103.59 32.17 158 28 70.36-5.37 136.33-33.31 206.8-37.5 73.84-4.36 147.54 16.88
+    <!--footer-->
+    <div class="footer-offset-wrapper">
+      <div id="wave" style="overflow: hidden">
+        <svg
+          preserveAspectRatio="none"
+          viewBox="0 0 1200 120"
+          xmlns="https://www.w3.org/2000/svg"
+          style="
+            fill: #ffffff;
+            width: 100%;
+            height: 92px;
+            transform: rotate(180deg) scaleX(-1);
+          "
+        >
+          <path
+            d="M0 0v46.29c47.79 22.2 103.59 32.17 158 28 70.36-5.37 136.33-33.31 206.8-37.5 73.84-4.36 147.54 16.88
             218.2 35.26 69.27 18 138.3 24.88 209.4 13.08 36.15-6 69.85-17.84 104.45-29.34C989.49 25 1113-14.29 1200 
-            52.47V0z" opacity=".1" />
-        <path d="M0 0v15.81c13 21.11 27.64 41.05 47.69 56.24C99.41 111.27 165 111 224.58 91.58c31.15-10.15 60.09-26.07 
+            52.47V0z"
+            opacity=".1"
+          />
+          <path
+            d="M0 0v15.81c13 21.11 27.64 41.05 47.69 56.24C99.41 111.27 165 111 224.58 91.58c31.15-10.15 60.09-26.07 
             89.67-39.8 40.92-19 84.73-46 130.83-49.67 36.26-2.85 70.9 9.42 98.6 31.56 31.77 25.39 62.32 62 103.63 73 
             40.44 10.79 81.35-6.69 119.13-24.28s75.16-39 116.92-43.05c59.73-5.85 113.28 22.88 168.9 38.84 30.2 8.66 
-            59 6.17 87.09-7.5 22.43-10.89 48-26.93 60.65-49.24V0z" opacity=".2" />
-        <path d="M0 0v5.63C149.93 59 314.09 71.32 475.83 42.57c43-7.64 84.23-20.12 127.61-26.46 59-8.63 112.48 12.24 
-            165.56 35.4C827.93 77.22 886 95.24 951.2 90c86.53-7 172.46-45.71 248.8-84.81V0z" opacity=".5" />
-      </svg>
-    </div>
-    <footer class="page-footer">
-      <div class="typewriter">
-        <h3 data-animate="false">You can hire me today!</h3>
+            59 6.17 87.09-7.5 22.43-10.89 48-26.93 60.65-49.24V0z"
+            opacity=".2"
+          />
+          <path
+            d="M0 0v5.63C149.93 59 314.09 71.32 475.83 42.57c43-7.64 84.23-20.12 127.61-26.46 59-8.63 112.48 12.24 
+            165.56 35.4C827.93 77.22 886 95.24 951.2 90c86.53-7 172.46-45.71 248.8-84.81V0z"
+            opacity=".5"
+          />
+        </svg>
       </div>
-    </footer>
-  </div>
+      <footer class="page-footer">
+        <div class="typewriter">
+          <h3 data-animate="false">You can hire me today!</h3>
+        </div>
+      </footer>
+    </div>
 
-  <!--iframe for code injections-->
-  <div id="backdrop-render" data-showing="false">
-    <iframe src="" id="render"></iframe>
+    <!--iframe for code injections-->
+    <div id="backdrop-render" data-showing="false">
+      <iframe src="" id="render"></iframe>
 
-    <button id="toggle-render">
-      <ion-icon name="close-circle"></ion-icon>
-    </button>
-  </div>
+      <button id="toggle-render">
+        <ion-icon name="close-circle"></ion-icon>
+      </button>
+    </div>
 
-  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-  <script type="text/javascript" src="./js/app_script.js"></script>
-</body>
-
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script type="text/javascript" src="./js/app_script.js"></script>
+  </body>
 </html>
